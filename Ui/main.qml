@@ -15,7 +15,7 @@ Window {
         plugin: Plugin {
             name: "osm"
         }
-        activeMapType: supportedMapTypes[5]
+        activeMapType: supportedMapTypes[0]
         MapQuickItem {
             id: marker
             anchorPoint.x: image.width/4
