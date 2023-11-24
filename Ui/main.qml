@@ -13,16 +13,14 @@ Window {
 
     Component.onCompleted: {
         gpslist = metaDataParser.getImageRecords();
-        for(let x of gpslist)
-        {
-            console.log(x)
-        }
+
     }
 
     Map {
         id:io
         anchors.fill: parent
-        zoomLevel: 14
+        zoomLevel: 17
+        center:gpslist[0]
         plugin: Plugin {
             name: "osm"
         }
@@ -33,9 +31,24 @@ Window {
             delegate: MapQuickItem {
                 coordinate: gpslist[index]
                 sourceItem: Image {
-                    id: image2
+                    id: pinImage
                     source: "http://maps.gstatic.com/mapfiles/ridefinder-images/mm_20_red.png"
+                    MouseArea
+                    {
+                        anchors.fill: pinImage
+                        onClicked: {
+                            io.zoomLevel = 1.2 * io.zoomLevel
+                            io.center = gpslist[index]
+                        }
+                    }
                 }
+            }
+        }
+        MapRoute {
+            line.color: "blue"
+            line.width: 3
+            route: Route {
+                path: gpslist
             }
         }
     }
