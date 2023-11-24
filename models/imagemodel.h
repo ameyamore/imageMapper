@@ -12,8 +12,8 @@ public:
     imageModel();
     enum imageModelRoles
     {
-        TypeRole = Qt::UserRole + 1,
-        SizeRole
+        GeoCoordinate = Qt::UserRole + 1,
+        timeStamp
     };
 };
 
