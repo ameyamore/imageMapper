@@ -57,3 +57,4 @@ compile_commands.json
 *.jpeg
 *.JPG
 *.JPEG
+API/qt-osm-map-providers/
