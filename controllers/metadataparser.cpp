@@ -32,7 +32,7 @@ void metaDataParser::generateImageList()
 QVector<QGeoCoordinate> metaDataParser::getImageRecords()
 {
     QVector<QGeoCoordinate> gpslist;
-    for(auto record : imageRecords)
+    for(auto record : qAsConst(imageRecords))
     {
         gpslist.push_back(record.imageGeoCord);
     }
